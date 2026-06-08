@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title></title>
+
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            #contenedor{
+                width: 400px;
+                height: 200px;
+                border: 1px solid black;
+                position:relative;
+                margin:0 auto; /*centrar el contenedor*/   
+                overflow: hidden; /*OCULTA TODO LO QUE CONTIENE*/       
+            }
+            #cuadrito{
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+                position: absolute;/*OBLIGATORIO PARA MOVER EL DIV*/
+                top: 50px;
+                left: -100px;
+
+                animation: cuadrito 3s infinite;
+                animation-timing-function: linear;/*define la forma de moverse*/
+
+            }
+            @keyframes cuadrito{
+                from{
+                    left: -100px;
+                }
+                to{
+                    left: 500px;
+                }
+            }
+        </style>
+</head>
+<body>
+    <div id="contenedor">
+
+        <div id="cuadrito"></div>
+        
+
+    </div>
+</div>
+</body>
+</html>

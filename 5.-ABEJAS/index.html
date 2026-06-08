@@ -1,0 +1,99 @@
+<html> 
+<head>
+        <title>Animación CS3</title>
+        <style>
+
+            *{
+                margin:0px;
+                padding:0px;
+            }
+            .contenedor{
+                width: 400px;
+                height: 200px;
+                border:1px solid black;
+                position: relative;/* provoca el centrado del div contenedor */
+                margin: 0 auto;/* provoca el centrado del div contenedor */
+                overflow: hidden;
+                background-image: url(img/campo4.webp);
+                background-size: cover;
+            }
+            .cuadrito1{
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                left: 100px; 
+                top: 50px;
+                animation: cuadrito1 3S infinite;
+                background-image: url(img/abeja2.png);
+                background-size: cover;
+            }
+            @keyframes cuadrito1{
+                0%{
+                    left: -50px; 
+                    top: 150px;
+                    rotate: 0deg;
+                    
+                }
+                50%{
+                    left: 175px; 
+                    top: 0px;
+                    rotate: 60deg;
+                }
+                100%{
+                    left: 450px; 
+                    top: 200px;
+                    rotate: 00deg;
+                }
+            }
+            .cuadrito1 img{
+                width: 50px;
+                height: 50px;
+
+            }
+            .cuadrito2{
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                left: 100px; 
+                top: 50px;
+                animation: cuadrito2 3S infinite;
+                background-image: url(img/abeja2.png);
+                background-size: cover;
+            }
+            @keyframes cuadrito2{
+                0%{
+                    left: -50px; 
+                    top: 0px;
+                    rotate: 0deg;
+                    
+                }
+                50%{
+                    left: 175px; 
+                    top: 150px;
+                    rotate: 60deg;
+                }
+                100%{
+                    left: 425px; 
+                    top: -50px;
+                    rotate: 0deg;
+                }
+            }
+            .cuadrito2 img{
+                width: 50px;
+                height: 50px;
+
+            }
+        </style>
+</head>
+<body>
+    <H1>ANIMACIÓN 2</H1>
+    <a href="../index.html">VOLVER</a>
+    <div class="contenedor">
+        <div class="cuadrito1"></div>            
+        <div class="cuadrito2"></div>            
+    </div>
+
+
+
+</body>
+</html>

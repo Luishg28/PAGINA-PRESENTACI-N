@@ -1,0 +1,23 @@
+@charset "utf-8";
+	.st0
+{
+	background : #B1C0C9;
+	background : rgba(177, 192, 201, 1);
+}
+.image
+{
+	background-image : url(image.png);
+	background-repeat : no-repeat;
+}
+.image1
+{
+	background-image : url(image1.png);
+	background-repeat : no-repeat;
+}
+.st1
+{
+	background : #B1C0C9;
+	background : rgba(177, 192, 201, 1);
+	box-shadow : 0px 8px 13px rgba(0, 0, 0, 0.5);
+	filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=8, Color='#000000') ;
+}

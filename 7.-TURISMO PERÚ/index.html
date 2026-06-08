@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>TURISMO PERÚ</title>
+<style>
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+    .contenedor{
+        width: 800px;
+        height: 300px;
+        border: 1px solid black;
+        margin:0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+    .tarjeta1, .tarjeta2, .tarjeta3, .tarjeta4{
+        width: 200px;
+        height: 300px;
+        position: absolute;
+        top: -300px;
+        background-size: cover;
+    }
+    .tarjeta1{
+        background-image: url(img/mar.jpg);        
+        left: 0px;
+        animation: tarjeta1 3s 1 forwards ;
+        
+    }
+    .tarjeta2{
+        background-image: url(img/costa.jpg);        
+        left: 200px;
+        animation: tarjeta1 3s 1 forwards 3s;
+    }
+    .tarjeta3{
+        background-image: url(img/sierra.jpg);        
+        left: 400px;
+        animation: tarjeta1 3s 1 forwards 6s;
+    }
+    .tarjeta4{
+        background-image: url(img/selva.jpg);        
+        left: 600px;
+        animation: tarjeta1 3s 1 forwards 9s;
+    }
+    /*ANIMACIONES*/
+
+    @keyframes tarjeta1{
+        0%{
+            top:-300px;
+            transform: rotateY(180deg);
+        }
+        50%{
+            top:300px;
+        }
+        100%{
+            top:0px;
+        }
+    }
+/*
+    @keyframes tarjeta2{
+        0%{
+            top:-300px;
+            transform: rotateY(180deg);
+
+        }
+        50%{
+            top:300px;
+        }
+        100%{
+            top:0px;
+        }
+    }
+    
+    @keyframes tarjeta3{
+        0%{
+            top:-300px;
+            transform: rotateY(180deg);
+        }
+        50%{
+            top:300px;
+        }
+        100%{
+            top:0px;
+        }
+    }
+    
+    @keyframes tarjeta4{
+        0%{
+            top:-300px;
+            transform: rotateY(180deg);
+        }
+        50%{
+            top:300px;
+        }
+        100%{
+            top:0px;
+        }
+    }
+*/
+.tarjeta1:hover{
+    transition: 1s;
+    scale: 1.2;
+    z-index: 1;
+    box-shadow: 0px 0px 50px white;
+}
+.tarjeta2:hover{
+    transition: 1s;
+    scale: 1.2;
+    z-index: 1;
+    box-shadow: 0px 50px 50px white;
+}
+.tarjeta3:hover{
+    transition: 1s;
+    scale: 1.2;
+    z-index: 1;
+    box-shadow: 0px 50px 50px white;
+}
+.tarjeta4:hover{
+    transition: 1s;
+    scale: 1.2;
+    z-index: 1;
+    box-shadow: 0px 50px 50px white;
+}
+
+
+
+</style>
+</head>
+<body>
+    <H1>ANIMACIÓN 4</H1>
+    <a href="../index.html">VOLVER</a>
+<div class="contenedor">
+    <div class="tarjeta1"></div>
+    <div class="tarjeta2"></div>
+    <div class="tarjeta3"></div>
+    <div class="tarjeta4"></div>
+</div>
+</body>
+</html>
+

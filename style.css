@@ -1,0 +1,431 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    background-image: url(img/bg2.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #0b0c10;
+}
+
+header{
+    z-index: 889;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.823);
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 200px;
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.2s ease;
+}
+
+header .sticky{
+    background-color: #3a6cf4;
+    padding: 10px 200px;
+}
+
+header .marca{
+    color: white;
+    font-size: 2.3em;
+    font-weight: 1000;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+header .navegacion{
+    position: relative;
+}
+
+header .navegacion a{
+    color: rgb(255, 255, 255);
+    font-size: 1em;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 30px;
+}
+
+header .navegacion a:hover{
+    color: #b5b6b8;
+}
+
+header .sticky .navegacion a:hover{
+    color: rgba(255, 255, 255, 0.123);
+}
+
+section{
+     padding: 100px 200px; 
+}
+
+.main{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.main .contenido{
+    max-width: 800px;
+}
+
+.main .contenido h2{
+    color: white;
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.main .contenido h2 span{
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+.animated-text{
+    position: relative;
+    height: 70px;
+    overflow: hidden;
+}
+
+.animated-text h3{
+    color: rgba(255, 229, 246, 0.392);
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 70px;
+    letter-spacing: 1px;
+}
+
+.animated-text h3:nth-child(1){
+    animation: text-move 10s infinite ease-out;
+}
+
+
+.title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section-title{
+    position: relative;
+    color: #3a6cf4;
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 60px;
+
+}
+
+.section-title:before{
+
+content: "";
+position: absolute;
+top: 50px;
+left: 50%;
+width: 15px;
+height: 15px;
+border-radius: 50%;
+transform: translateX(-50%);
+background: rgba(238, 238, 238, 0.082); /* Fondo blanco casi invisible */
+backdrop-filter: blur(15px); /* Aquí sucede la magia del desenfoque */
+-webkit-backdrop-filter: blur(15px); /* Compatibilidad con Safari */
+border: 1px solid rgba(255, 255, 255, 0.08); /* Borde ultra fino que delimita la placa */
+padding: 5px;
+
+}
+
+/* .about {
+    background: #ffffffe3;
+    background: linear-gradient(135deg, #0f1016 0%, #171226 50%, #0b0c10 100%);
+    color: #061e8100;
+    overflow: hidden;
+} */
+
+.about {
+
+    background: rgba(15, 16, 22, 0.4); 
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px); 
+    color: #ffffff; 
+    overflow: hidden;
+    scroll-margin-top: 80px; 
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 90px 20px 40px 20px;
+}
+
+/* Cambiamos el título "Sobre mí" para que combine con la estética oscura */
+.about .section-title {
+    color: #ffffff; /* Blanco para resaltar en el fondo oscuro */
+}
+
+.about .contenido{
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.about .contenido .col-left{
+    flex: 1;
+    max-width: 45%;
+    max-height: 450px;
+}
+
+.about .contenido .col-right {
+    flex: 1;
+    max-width: 52%;
+}
+
+.about-card {
+    background: rgba(238, 238, 238, 0.027); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.08);  
+    padding: 40px;
+    border-radius: 24px; 
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+
+.about .contenido .col-left .img-card {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.about .contenido .col-left .img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Títulos y textos usando la paleta Cyber Neon */
+.about .contenido .col-right .contenido-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 18px;
+    color: #ffffff; /* Blanco brillante */
+}
+
+.about .contenido .col-right .paragraph-text {
+    font-size: 0.95rem;
+    color: #e2e8f0; /* Gris platino suave (Paleta) */
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 25px;
+}
+
+/* Botón único acoplado a la paleta */
+.unique-btn {
+    background: linear-gradient(135deg, #292929 0%, #292929 100%); /* Degradado de Azul a Magenta */
+    color: white !important;
+    border-radius: 50px; 
+    padding: 12px 35px !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: none;
+/*     box-shadow: 0 10px 20px rgba(146, 154, 173, 0);
+ */    transition: all 0.3s ease !important;
+}
+
+.unique-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 156, 255, 0.418); /* Resplandor magenta al pasar el mouse */
+    background: linear-gradient(135deg, #292929 0%, #292929 100%); /* Invierte el degradado */
+}
+
+@keyframes text-move {
+    0%,15%{
+        margin-top:0px;
+    }
+
+    25%,40%{
+        margin-top: -70px;
+    }
+
+    50%,65%{
+        margin-top: -140px;
+    }
+    75%,90%{
+        margin-top: -70px;
+    }
+    100%{
+        margin-top: 0px;
+    }
+}
+
+.btn{
+    color: white;
+    background-color: #000000;
+    font-size: 1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border-spacing: 2px;
+    margin-top: 30px;
+    transition: 0.5s ease;
+}
+
+.btnhover{
+    background-color: #646464;
+}
+
+.media-icons{
+    margin-top: 50px;
+}
+
+.media-icons a{
+    color: white;
+    font-size: 25px;
+    margin-right: 30px;
+}
+
+
+@media (max-width:1040px){
+    header{
+        padding: 12px 20px;
+    }
+
+    header .sticky{
+        padding: 10px 20px;
+    }
+
+    header .navegacion{
+        display: none;
+    }
+
+    header .navegacion.activo{
+        z-index: 999;
+        display: block;
+        position: fixed;
+
+        background: rgba(15, 16, 22, 0.75); 
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
+        
+        top: 0;
+        right: 0;
+        width: 380px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        transition: 0.3s ease;
+    }
+
+    header .navegacion a{
+        color: rgba(255, 255, 255, 0.39);
+        font-size: 1.2em;
+        margin: 10px;
+        padding: 10px 100px;
+        border-radius: 20px;
+    }
+
+    header .navegacion a:hover{
+        background-color: #9522e22d;
+        color: rgb(250, 250, 250);
+        transition: 0.3s ease;
+    }
+
+    .menu-btn{
+        position: absolute;
+        background-image: url(img/menu.png);
+        background-position: center;
+        background-size: 30px;
+        background-repeat: no-repeat;
+        width: 40px;
+        height: 40px;
+        right: 0;
+        margin: 0 20px;
+        cursor: pointer;
+        transition: 0.3s ease;
+
+    }
+
+    .menu-btn.activo{
+        z-index: 999;
+        background-image: url(img/close.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 25px;
+        transition: 0.3s ease;
+        filter: invert(1);
+    }
+
+    section{
+        padding: 80px 20px;
+    }
+
+    .main .contenido h2{
+        font-size: 1em;
+    }
+
+    .animated-text h3{
+        font-size: 2.2em;
+    }
+
+    .section-title{
+        font-size: 1.8em;
+    }
+
+    .about .contenido{
+        flex-direction: column;
+        gap: 30px;
+    }
+    .about .contenido .col-left,
+    .about .contenido .col-right{
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .about .contenido .column{
+        width: 100%;
+        position: relative;
+    }
+    
+    .about-card{
+        padding: 25px;
+
+    }
+
+
+}
+
+

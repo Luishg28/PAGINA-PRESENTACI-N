@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <title>CSS ANIMATION</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        text-align: center;
+      }
+      body {
+        background-color: black;
+      }
+      h1 {
+        color: rgba(255, 0, 0, 0);
+        font-size: 40px;
+        animation-name: texto;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes texto {
+        from {
+          color: black;
+        }
+        to {
+          color: white;
+        }
+      }
+      p {
+        color: rgba(0, 0, 0, 0);
+        animation-name: parrafo;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-delay: 3s;
+        animation-direction: alternate;
+        animation-fill-mode: forwards; /*backwards es como al principio y fordwards como el final*/
+      }
+      @keyframes parrafo {
+        from {
+          margin-left: 100%;
+          width: 400%;
+          color: black;
+        }
+        to {
+          margin-left: 0%;
+          width: 100%;
+          color: white;
+        }
+      }
+      img {
+        opacity: 0;
+        animation-name: foto;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+        animation-delay: 6s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes foto {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .caja {
+        margin-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="caja">
+      <h1>MANUEL SEOANE CORRALES</h1>
+      <p>
+        Manuel Seoane Corrales (Chorrillos, 1 de noviembre de 1900-Washington D.
+        C., 10 de septiembre de 1963) fue un abogado, periodista y político
+        peruano, uno de los miembros fundadores del Partido Aprista Peruano.
+        Después de Haya de la Torre, fue el líder aprista que gozó de más
+        popularidad. Apodado “El Cachorro”. Fundador y primer director de La
+        Tribuna, órgano de prensa de su partido. En el seno de su partido
+        desempeñó, entre otros cargos, la Secretaría General (1940-1948).
+        Padeció de persecuciones y destierros al igual que el resto de sus
+        compañeros apristas. Fue candidato a la primera vicepresidencia de la
+        República del Perú en plancha presidencial encabezada por Haya de la
+        Torre en las elecciones generales de 1962, las mismas que fueron
+        anuladas.
+      </p>
+      <img src="img/foto.jpg" alt="" />
+    </div>
+  </body>
+</html>

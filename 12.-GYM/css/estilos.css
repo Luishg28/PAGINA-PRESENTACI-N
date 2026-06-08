@@ -1,0 +1,128 @@
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+*{
+    Font-family: 'bebas-neue-regular', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+}
+.contenedor{
+    width: 600px;
+    height: 900px;
+    margin: 0 auto;/* Centrar el div */
+    background-color: #161617;
+    position: relative;
+    top: 1vh;
+    overflow: hidden;
+}
+.franja1{
+    width: 720px;
+    height: 500px;
+    background-color: #ebb61e;
+    filter: sepia(100%) saturate(200%) brightness(110%);
+    position: absolute;
+    top: 100px;
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 50%, 100% 100%, 0 50%);
+}
+.franja2{
+    width: 270px;
+    height: 400px;
+    top: 400px;
+    left: 40px;
+    z-index: 2;
+    background-color: #ebb61e;
+    position: absolute;
+    clip-path: polygon(0 0, 100% 24%, 100% 100%, 0 100%);
+}
+.franja3{
+    width: 600px;
+    height: 900px;
+    z-index: 0;
+    background-color: rgba(145, 135, 135, 0.103);
+    position: absolute;
+    top: 0px;
+    clip-path: polygon(0 0, 100% 0%, 100% 68%, 0 45%);
+}
+.musculoso{
+    width: 400px;
+    position: absolute;
+    z-index: 1;
+    animation: musculoso 15s 1 forwards;
+}
+@keyframes musculoso{
+    from{
+        scale: 100%;
+    }
+    to{
+        scale: 150%;
+    }
+}
+.fondo{
+    width: 720px;
+    height: 500px;
+    animation: fondo 15s 1 forwards;
+}
+@keyframes fondo{
+    from{
+        scale: 110%;
+    }
+    to{
+        scale: 80%;
+    }
+}
+.texto{
+    position: relative;
+    width: 400px;
+    height: 120px;
+    left: 350px;
+    font-size: 20px;
+    padding: 0px;
+    top: 30px;
+    color: white;
+    z-index: 1;
+    margin: 0;
+}
+.texto2{
+    width: 280px;
+    position: absolute;
+    left: 40px;
+    top: 830px;
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+.texto3{
+    position: absolute;
+    left: 330px;
+    top: 620px;
+    color: white;
+}
+.titulo{
+    margin: 0;
+    padding: 0px;
+}
+.titulo2{
+    width: 200px;
+    height: 60px;
+    left: 20px;
+    font-size: 20px;
+    margin-top: 60px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.lista{
+    position: absolute;
+    width: 280px;
+    left: 35px;
+    font-size: 13px;
+    color: black;
+}

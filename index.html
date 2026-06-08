@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Portfolio-Proyectos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://kit.fontawesome.com/418ca81829.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <header>
+        <a href=""class="marca"data-aos="zoom-in" data-aos-duration="1000"> <> </a>
+
+        <div class="menu-btn"></div>
+        <div class="navegacion activo">
+            <a href="#main"data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">Home</a>
+            <a href="#about"data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Sobre mi</a>
+<!--             <a href="#"data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">Skills</a>
+ --><!--             <a href="#"data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Servicios</a>
+ -->            <a href="#"data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">Proyectos</a>
+<!--             <a href="#"data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">Contacto</a>
+ -->        </div>
+    </header>
+    
+
+<section class="main" id="main">
+    <div class="contenido">
+        <h2 data-aos="fade-right" data-aos-duration="1000" data-aos-delay="800">Hola, soy <br> <span> Luis Huamaní</span></h2>
+        <div class="animated-text"data-aos="fade-left" data-aos-duration="1000" data-aos-delay="900">
+            <h3>Animación de Gráficos</h3>
+            <h3>Desarrollo de sistemas</h3>
+            <h3>Programador</h3>
+        </div>
+        <a href="#" class="btn"data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="1000">Ver mi trabajo</a>
+        <div class="media-icons">
+            <a href="#"data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1100"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.notion.so/Luis-Huaman-Portfolio-2f4615cf7335805c8088deff852700e6"data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1200"><i class="fab fa-notion"></i></a>
+            <a href="https://github.com/Luishg28" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1300"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/luis-huamaní-garcía-6b9b19310" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1400"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+</section>
+
+   <!--  <section class="about" id="about">
+        <div class="title reveal">
+            <h2 class="section-title">Sobre mi</h2>
+
+        </div>
+        <div class="contenido">
+            <div class="column col-left reveal"> 
+                <div class="img-card">
+                    <img src="img/about.png" alt="">
+                </div>
+
+            </div>
+        </div>
+        <div class="colum col-right reveal">
+            <h2 class="contenido-title">Hola, soy Luis. Bienvenido a mi portafolio web.</h2>
+            <p class="paragraph-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere optio nesciunt, esse commodi atque incidunt veritatis iste iusto maiores doloribus beatae veniam minima voluptas id perferendis suscipit recusandae, ab exercitationem?</p>
+            <a href="#" class="btn">Ver mas</a>
+        </div> -->
+
+<section class="about" id="about">
+    <div class="title reveal" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="section-title">Sobre mí</h2>
+    </div>
+
+    <div class="contenido">
+        <!-- Columna de la Imagen -->
+        <div class="column col-left" data-aos="fade-right" data-aos-duration="1000"> 
+            <div class="img-card">
+                <img src="img/about.png" alt="Luis Huamaní">
+            </div>
+        </div>
+
+        <!-- Columna del Texto con la PLACA BLUR TRANSPARENTE -->
+        <div class="column col-right" data-aos="fade-left" data-aos-duration="1000">
+            <div class="about-card">
+                <h2 class="contenido-title">Analista de Soluciones Tecnológicas e Inteligencia Artificial</h2>
+                <p class="paragraph-text">Especialista en soporte e implementación de soluciones empresariales, con experiencia en SQL Server, sistemas ERP, automatización de procesos, integraciones API y desarrollo de soluciones basadas en inteligencia artificial. Participación en proyectos de agentes IA, telefonía VoIP, automatización con n8n e integración de plataformas empresariales para optimizar procesos operativos y mejorar la experiencia del usuario.</p>
+                <a href="#" class="btn unique-btn">Ver más</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+     AOS.init();
+    </script>
+    <script>
+        const menuBtn = document.querySelector(".menu-btn");
+        const navegacion = document.querySelector(".navegacion");        
+        const navegacionitems  = document.querySelectorAll("navegacion a");
+
+        menuBtn.addEventListener("click",() => {
+            menuBtn.classList.toggle("active");
+            navegacion.classList.toggle ("active");
+        })
+
+        window.addEventListener("click",() =>{
+            menuBtn.classList.toggle("active");
+            navigation.classList.toggle("active");
+        })
+
+        window.addEventListener("scroll",function(){
+            const header = document.querySelector("header");
+            header.classList.toggle("sticky",window)
+        })
+
+        navigationitems.forEach((navigationItem) => {
+            navigationItem.addEventListener("click",() =>{
+                menuBtn.classList.remove("aactive");
+                navigation.classList.remove("active")
+            })
+        })
+
+
+
+    </script>
+
+</body>
+</html>

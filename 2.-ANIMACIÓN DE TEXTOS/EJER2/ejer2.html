@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <title>CSS ANIMATION</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family:
+        "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        text-align: center;
+      }
+      body {
+        background-color: white;
+      }
+      .img1 {
+        opacity: 0;
+        animation-name: foto;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes foto {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      h1 {
+        color: white;
+        font-size: 60px;
+        animation-name: titulo;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-delay: 4s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes titulo {
+        from {
+          color: white;
+        }
+        to {
+          color: red;
+        }
+      }
+      .p1 {
+        color: white;
+        animation-name: parrafo;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-delay: 6s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes parrafo {
+        from {
+          color: white;
+        }
+        to {
+          color: black;
+        }
+      }
+      .img2 {
+        width: 400px;
+        opacity: 0;
+        animation-name: foto2;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+        animation-delay: 8s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes foto2 {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .p2 {
+        color: white;
+        animation-name: parrafo2;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-delay: 10s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes parrafo2 {
+        from {
+          color: white;
+        }
+        to {
+          color: black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <img class="img1" src="img/foto.jpg" alt="" />
+    <h1>SAM ALTMAN</h1>
+
+    <p class="p1">
+      Samuel Harris Altman (Chicago, Illinois; 22 de abril de 1985), conocido
+      como Sam Altman, es un empresario, inversionista, programador y bloguero
+      estadounidense. Es director ejecutivo de OpenAI y expresidente de Y
+      Combinator, y se le considera una de las figuras principales en el
+      desarrollo de la inteligencia artificial. Su patrimonio neto actual es de
+      2100 millones de dólares, de acuerdo con Forbes.
+    </p>
+    <img class="img2" src="img/foto2.png" alt="" />
+    <p class="p2">
+      Altman es el CEO de OpenAI. OpenAI es una empresa de investigación, que se
+      inicia como una ONG, cuyo objetivo es promover la inteligencia artificial
+      de una manera que probablemente beneficie a la humanidad en su conjunto,
+      en lugar de causar daño. La organización fue financiada inicialmente por
+      Altman, Brockman, Elon Musk, Jessica Livingston, Peter Thiel, Amazon Web
+      Services, Infosys y YC Research. En total, cuando la empresa se lanzó en
+      2015, había recaudado mil millones de dólares de financiadores externos.
+    </p>
+  </body>
+</html>

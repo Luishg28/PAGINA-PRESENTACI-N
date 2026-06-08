@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIP PATH CSS</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .contenedor{
+            width: 400px;
+            height: 700px;
+            background-image: url(img/fondo.png);
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+        .Gorro{
+
+            width: 100px;
+            height: 100px;
+            background-image: url(img/gorro2.jpg);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            position: absolute;
+            left: 150px;
+            top: 100px;
+            z-index: 2;
+            background-size: cover;
+            background-position: center;
+        }
+        .Cara{
+
+            width: 100px;
+            height: 100px;
+            background-image: url(img/cara2.webp);
+            clip-path: circle(50% at 50% 50%);
+            position: absolute;
+            left: 150px;
+            top: 170px;
+            z-index: 1;
+            background-size: cover;
+            background-position: center;
+        }
+        .Cuerpo{
+
+            width: 200px;
+            height: 200px;
+            background-image: url(img/cuerpo.jpg);
+            clip-path: polygon(45% 0, 55% 0, 75% 100%, 25% 100%);
+            position: absolute;
+            left: 100px;
+            top: 268px;
+            background-size: cover;
+            background-position: center;
+        }
+        .Brazo-izq{
+
+            width: 100px;
+            height: 40px;
+            background-image: url(img/cuerpo.jpg);
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+            position: absolute;
+            left: 100px;
+            top: 310px;
+            background-size: cover;
+            background-position: center;
+        }
+        .Brazo-der{
+
+            width: 100px;
+            height: 40px;
+            background-image: url(img/cuerpo.jpg);
+            clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+            position: absolute;
+            left: 200px;
+            top: 310px;
+            background-size: cover;
+            background-position: center;
+        }
+        .Pie-izq{
+
+            width: 100px;
+            height: 100px;
+            background-image: url(img/zapato.jpg);
+            clip-path: ellipse(48% 19% at 51% 48%);
+            position: absolute;
+            left: 100px;
+            top: 425px;
+            background-size: cover;
+            background-position: center;
+        }
+        .Pie-der{
+
+            width: 100px;
+            height: 100px;
+            background-image: url(img/zapato.jpg);
+            clip-path: ellipse(48% 19% at 51% 48%);
+            position: absolute;
+            left: 200px;
+            top: 425px;
+            background-size: cover;
+            background-position: center;
+        }
+
+
+
+
+
+        :root {
+        color-scheme: dark;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+    <div class="Gorro"></div>
+    <div class="Cara"></div>
+    <div class="Cuerpo"></div>
+    <div class="Brazo-izq"></div>
+    <div class="Brazo-der"></div>
+    <div class="Pie-izq"></div>
+    <div class="Pie-der"></div>
+    </div>
+</body>
+</html>

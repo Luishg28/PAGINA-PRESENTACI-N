@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <title>CSS ANIMATION</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family:
+        "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        text-align: center;
+      }
+      body {
+        background-color: aliceblue;
+      }
+      h1 {
+        color: rgba(255, 0, 0, 0);
+        font-size: 40px;
+        animation-name: titulo;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes titulo {
+        from {
+          color: rgba(255, 0, 0, 0);
+        }
+        to {
+          color: rgba(255, 0, 0, 1);
+        }
+      }
+      h2 {
+        color: rgba(255, 0, 0, 0);
+        animation-name: subtitulo;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-delay: 4s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes subtitulo {
+        from {
+          color: rgba(255, 0, 0, 0);
+        }
+        to {
+          color: rgb(47, 0, 255);
+        }
+      }
+      img {
+        opacity: 0;
+        animation-name: foto;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+        animation-delay: 6s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes foto {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .p1 {
+        color: rgba(255, 0, 0, 0);
+        animation-name: parrafo;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-delay: 8s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes parrafo {
+        from {
+          color: rgba(255, 0, 0, 0);
+        }
+        to {
+          color: rgba(13, 0, 255, 0.86);
+        }
+      }
+      .p2 {
+        color: rgba(255, 0, 0, 0);
+        animation-name: parrafo;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-delay: 10s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes parrafo {
+        from {
+          color: rgba(255, 0, 0, 0);
+        }
+        to {
+          color: rgba(13, 0, 255, 0.86);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DRA. LISA SU</h1>
+    <h2>Presidenta de AMD</h2>
+    <img src="img/lisa.jpg" alt="" />
+    <p class="p1">
+      Lisa Tzwu-Fang Su ( chino :蘇姿丰; pinyin : Sū Zīfēng ; taiwanés : Soo
+      Tsu-hong ; nacida el 7 de noviembre de 1969) es una ejecutiva de negocios,
+      científica informática e ingeniera eléctrica taiwanesa y estadounidense
+      que ha sido presidenta y directora ejecutiva de la empresa estadounidense
+      de semiconductores AMD desde 2014.
+    </p>
+    <p class="p2">
+      Su fue nombrada presidenta y directora ejecutiva de AMD en octubre de
+      2014, después de unirse a la compañía en 2012 y ocupar cargos como
+      vicepresidenta sénior de las unidades de negocio globales de AMD y
+      directora de operaciones. Anteriormente formó parte de la junta directiva
+      de Cisco Systems y actualmente forma parte de la junta directiva de la
+      Asociación de la Industria de Semiconductores de EE. UU. , además de ser
+      miembro del Instituto de Ingenieros Eléctricos y Electrónicos (IEEE).
+    </p>
+  </body>
+</html>
