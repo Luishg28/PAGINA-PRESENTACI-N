@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cohete espacial</title>
+    <link rel="stylesheet" href="../estilo-proyecto.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: radial-gradient(circle at top, #18243d 0%, #070910 55%, #020307 100%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px 40px;
+        }
+
+        .barra {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 68px;
+            padding: 0 8%;
+            background: rgba(0, 0, 0, 0.78);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        .barra a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            margin-left: 24px;
+        }
+
+        .marca {
+            margin-left: 0 !important;
+            font-size: 1.4rem;
+        }
+
+        .proyecto {
+            width: min(720px, 100%);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 22px;
+            letter-spacing: 0.08em;
+        }
+
+        #espacio {
+            width: min(640px, 100%);
+            aspect-ratio: 2 / 1;
+            background:
+                radial-gradient(circle at 20% 25%, rgba(255,255,255,0.8) 0 1px, transparent 2px),
+                radial-gradient(circle at 78% 35%, rgba(255,255,255,0.7) 0 1px, transparent 2px),
+                radial-gradient(circle at 48% 70%, rgba(255,255,255,0.5) 0 1px, transparent 2px),
+                linear-gradient(135deg, #050816, #111c36 52%, #050816);
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 8px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        #cohete {
+            width: 120px;
+            height: 120px;
+            position: absolute;
+            top: 34%;
+            left: 38%;
+            animation: flotar 0.7s ease-in-out infinite alternate;
+            z-index: 2;
+        }
+
+        #cohete img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 16px rgba(255, 199, 92, 0.45));
+        }
+
+        .llama {
+            width: 54px;
+            height: 18px;
+            position: absolute;
+            top: 49%;
+            left: calc(38% - 34px);
+            background: linear-gradient(90deg, transparent, #ffcf5a, #ff6b3d);
+            border-radius: 999px;
+            filter: blur(1px);
+            animation: llama 0.16s infinite alternate;
+            z-index: 1;
+        }
+
+        .asteroide {
+            position: absolute;
+            background: #f2f6ff;
+            border-radius: 999px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.75);
+            animation: volar linear infinite;
+        }
+
+        @keyframes flotar {
+            from { transform: translateY(-8px); }
+            to { transform: translateY(18px); }
+        }
+
+        @keyframes llama {
+            from { transform: scaleX(0.85); opacity: 0.65; }
+            to { transform: scaleX(1.15); opacity: 1; }
+        }
+
+        @keyframes volar {
+            from { left: -80px; }
+            to { left: 110%; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="barra">
+        <a class="marca" href="../../index.html#main">Luis</a>
+        <div class="enlaces-portafolio">
+            <a href="../../index.html#main">Inicio</a>
+            <a href="../../index.html#about">Sobre mí</a>
+            <a class="regresar" href="../../index.html#proyectos">Volver a proyectos</a>
+        </div>
+    </nav>
+
+    <main class="proyecto">
+        <h1>Cohete espacial</h1>
+        <div id="espacio">
+            <div class="llama"></div>
+            <div id="cohete">
+                <img src="ASSETS/cohetehorizontal.png" alt="Cohete">
+            </div>
+
+            <div class="asteroide" style="width:8px; height:8px; top:15%; animation-duration:3.2s;"></div>
+            <div class="asteroide" style="width:4px; height:8px; top:40%; animation-duration:4s;"></div>
+            <div class="asteroide" style="width:5px; height:8px; top:5%; animation-duration:5s;"></div>
+            <div class="asteroide" style="width:2px; height:5px; top:80%; animation-duration:2s;"></div>
+            <div class="asteroide" style="width:8px; height:8px; top:62%; animation-duration:7s;"></div>
+            <div class="asteroide" style="width:1px; height:8px; top:50%; animation-duration:1.4s;"></div>
+        </div>
+    </main>
+</body>
+</html>

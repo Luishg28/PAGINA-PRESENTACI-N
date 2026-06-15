@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cohete espacial</title>
+    <link rel="stylesheet" href="../estilo-proyecto.css">
+    <style>
+        * { margin: 0; padding: 0; }
+
+        #espacio {
+            width: 400px;
+            height: 200px;
+            background: black;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        #cohete {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50px;
+            left: 150px;
+            animation: flotar 0.5s ease-in-out infinite alternate;
+        }
+        #cohete img {
+            width: 100px;
+            height: 100px;
+        }
+        @keyframes flotar {
+            from { transform: translateY(-5px); }
+            to   { transform: translateY(25px); }
+        }
+
+        .asteroide {
+            position: absolute;
+            background: white;
+            animation: volar linear infinite;
+        }
+        @keyframes volar {
+            from { left: -60px; }
+            to   { left: 500px; }
+        }
+    </style>
+</head>
+<body>
+    <a class="regresar" href="../../index.html#proyectos">Volver a proyectos</a>
+    <h1>ANIMACIÓN 1</h1>
+    <div id="espacio">
+
+        <div id="cohete">
+            <img src="ASSETS/cohetehorizontal.png" alt="cohete">
+        </div>
+
+        <!-- Asteroides con distintos tamaños, posiciones y velocidades -->
+        <div class="asteroide" style="width:8px; height:8px; top:15px;  animation-duration:3.2s; animation-delay:0s;"></div>
+        <div class="asteroide" style="width:4px; height:8px; top:40px;  animation-duration:4s; animation-delay:0s;"></div>
+        <div class="asteroide" style="width:5px; height:8px; top:5px;  animation-duration:5s; animation-delay:0s;"></div>
+        <div class="asteroide" style="width:2px; height:5px; top:80px;  animation-duration:2s; animation-delay:0s;"></div>
+        <div class="asteroide" style="width:8px; height:8px; top:102px;  animation-duration:7s; animation-delay:0s;"></div>
+        <div class="asteroide" style="width:1px; height:8px; top:90px;  animation-duration:1s; animation-delay:0s;"></div>

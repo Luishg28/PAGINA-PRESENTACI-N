@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animación de Textos</title>
+    <link rel="stylesheet" href="../estilo-proyecto.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            background: radial-gradient(circle at top, #273247 0%, #0d1018 54%, #050609 100%);
+            color: white;
+            padding: 110px 24px 48px;
+        }
+
+        .barra {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            height: 68px;
+            padding: 0 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.78);
+            backdrop-filter: blur(10px);
+        }
+
+        .barra a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            margin-left: 24px;
+        }
+
+        .barra .marca {
+            margin-left: 0;
+            font-size: 1.4rem;
+        }
+
+        main {
+            width: min(980px, 100%);
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.6rem);
+            margin-bottom: 12px;
+        }
+
+        .intro {
+            max-width: 680px;
+            color: #d7dbe7;
+            line-height: 1.7;
+            margin-bottom: 34px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            min-height: 180px;
+            padding: 24px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+            border: 1px solid rgba(255,255,255,0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255,255,255,0.32);
+        }
+
+        .card span {
+            color: #9fb7ff;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .card h2 {
+            font-size: 1.35rem;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #d7dbe7;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 620px) {
+            .barra {
+                padding: 0 18px;
+            }
+            .barra a {
+                margin-left: 12px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="barra">
+        <a class="marca" href="../../index.html#main">Luis</a>
+        <div class="enlaces-portafolio">
+            <a href="../../index.html#main">Inicio</a>
+            <a href="../../index.html#about">Sobre mí</a>
+            <a class="regresar" href="../../index.html#proyectos">Volver a proyectos</a>
+        </div>
+    </nav>
+
+    <main>
+        <h1>Animación de Textos</h1>
+        <p class="intro">Tres ejercicios sencillos de entrada de texto, aparición de imágenes y lectura progresiva. La idea se mantiene, pero ahora tienen una página clara para ingresar.</p>
+
+        <section class="grid">
+            <a class="card" href="EJER1/ejer1.html">
+                <span>Ejercicio 01</span>
+                <h2>Texto biográfico</h2>
+                <p>Aparición de título, párrafo e imagen con tiempos CSS.</p>
+            </a>
+
+            <a class="card" href="EJER2/ejer2.html">
+                <span>Ejercicio 02</span>
+                <h2>Secuencia visual</h2>
+                <p>Imagen, título y bloques de información animados por etapas.</p>
+            </a>
+
+            <a class="card" href="EJER3/ejer3.html">
+                <span>Ejercicio 03</span>
+                <h2>Presentación Lisa Su</h2>
+                <p>Entrada gradual de texto, subtítulo, fotografía y contenido.</p>
+            </a>
+        </section>
+    </main>
+</body>
+</html>

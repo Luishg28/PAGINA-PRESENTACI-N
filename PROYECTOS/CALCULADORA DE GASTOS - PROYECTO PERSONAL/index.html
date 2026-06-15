@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#111816" />
+    <meta name="description" content="Control personal de ingresos, gastos, ahorros y deudas." />
+    <title>Mi Control Financiero</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-mark">S/</span>
+        <span>
+          <strong>Mi Control</strong>
+          <small>Finanzas personales</small>
+        </span>
+      </a>
+      <nav class="top-actions" aria-label="Acciones principales">
+        <span class="sync-status" id="dataMode">
+          <span class="status-dot"></span>
+          <span id="modeText">Guardado local</span>
+        </span>
+        <button class="icon-button install-button" id="installApp" type="button" hidden aria-label="Instalar aplicación" title="Instalar aplicación">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14" /></svg>
+        </button>
+        <a class="icon-button" href="../../index.html#proyectos" aria-label="Volver al portafolio" title="Volver al portafolio">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+        </a>
+      </nav>
+    </header>
+
+    <main class="app-shell" id="inicio">
+      <section class="dashboard-head">
+        <div>
+          <p class="eyebrow">Resumen financiero</p>
+          <h1>Tu dinero, claro y bajo control.</h1>
+          <p class="intro">Organiza ingresos, pagos, ahorros y deudas por mes y por quincena.</p>
+        </div>
+
+        <div class="month-control" aria-label="Selector de mes">
+          <button class="icon-button" id="prevMonth" type="button" aria-label="Mes anterior">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+          </button>
+          <div>
+            <span>Mes activo</span>
+            <strong id="activeMonthLabel"></strong>
+          </div>
+          <button class="icon-button" id="nextMonth" type="button" aria-label="Mes siguiente">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="summary-grid" aria-label="Resumen del mes">
+        <article class="metric metric-income">
+          <span class="metric-icon"><svg viewBox="0 0 24 24"><path d="m12 19 7-7-7-7M5 12h14" /></svg></span>
+          <div><span>Ingresos</span><strong id="incomeTotal">S/ 0.00</strong></div>
+        </article>
+        <article class="metric metric-expense">
+          <span class="metric-icon"><svg viewBox="0 0 24 24"><path d="m12 5 7 7-7 7M5 12h14" /></svg></span>
+          <div><span>Gastos</span><strong id="expenseTotal">S/ 0.00</strong></div>
+        </article>
+        <article class="metric metric-debt">
+          <span class="metric-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10" /></svg></span>
+          <div><span>Deudas</span><strong id="debtTotal">S/ 0.00</strong></div>
+        </article>
+        <article class="metric metric-savings">
+          <span class="metric-icon"><svg viewBox="0 0 24 24"><path d="M5 8c0-2 3-4 7-4s7 2 7 4v8c0 2-3 4-7 4s-7-2-7-4V8Z" /><path d="M5 8c0 2 3 4 7 4s7-2 7-4" /></svg></span>
+          <div><span>Ahorro del mes</span><strong id="savingsMonthTotal">S/ 0.00</strong></div>
+        </article>
+        <article class="metric metric-balance">
+          <span class="metric-icon"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h16M8 16v-4m4 4V8m4 8v-6" /></svg></span>
+          <div><span>Saldo disponible</span><strong id="balanceTotal">S/ 0.00</strong></div>
+        </article>
+      </section>
+
+      <section class="insight-grid">
+        <article class="panel budget-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="label">Límite mensual</span>
+              <h2>Presupuesto de gastos</h2>
+            </div>
+            <button class="text-button" id="editBudget" type="button">Editar</button>
+          </div>
+          <div class="budget-value">
+            <strong id="budgetAmount">S/ 0.00</strong>
+            <span id="budgetRemaining">Configura tu presupuesto</span>
+          </div>
+          <div class="progress-track"><span id="budgetProgress"></span></div>
+          <input id="monthlyBudget" type="number" min="0" step="10" inputmode="decimal" aria-label="Presupuesto mensual" hidden />
+        </article>
+
+        <article class="panel savings-overview">
+          <div>
+            <span class="label">Bolsa acumulada</span>
+            <h2>Ahorros generales</h2>
+          </div>
+          <strong id="savingsTotal">S/ 0.00</strong>
+          <p>Dinero separado de tus gastos y disponible para tus metas.</p>
+          <div id="savingsList" class="item-list savings-mini-list"></div>
+        </article>
+
+        <article class="panel health-panel">
+          <span class="label">Lectura rápida</span>
+          <h2 id="financialHealthTitle">Sin movimientos</h2>
+          <p id="financialHealthText">Registra ingresos y gastos para calcular tu estado financiero.</p>
+        </article>
+      </section>
+
+      <section class="quinzenas" aria-label="Resumen por quincena">
+        <article class="panel quincena-card">
+          <div class="quincena-header">
+            <div><span class="label">Días 1 al 15</span><h2>Primera quincena</h2></div>
+            <strong id="firstBalance">S/ 0.00</strong>
+          </div>
+          <div class="mini-stats">
+            <span><b id="firstIncome">S/ 0.00</b>Ingresos</span>
+            <span><b id="firstOut">S/ 0.00</b>Salidas</span>
+          </div>
+          <div id="firstHalfList" class="item-list compact"></div>
+        </article>
+
+        <article class="panel quincena-card">
+          <div class="quincena-header">
+            <div><span class="label">Días 16 al 31</span><h2>Segunda quincena</h2></div>
+            <strong id="secondBalance">S/ 0.00</strong>
+          </div>
+          <div class="mini-stats">
+            <span><b id="secondIncome">S/ 0.00</b>Ingresos</span>
+            <span><b id="secondOut">S/ 0.00</b>Salidas</span>
+          </div>
+          <div id="secondHalfList" class="item-list compact"></div>
+        </article>
+      </section>
+
+      <section class="workspace" id="registrar">
+        <article class="panel">
+          <div class="panel-heading">
+            <div><span class="label">Registro rápido</span><h2>Nuevo movimiento</h2></div>
+          </div>
+          <form id="transactionForm" class="form-grid">
+            <label>Tipo
+              <select id="transactionType">
+                <option value="expense">Gasto</option>
+                <option value="income">Ingreso</option>
+                <option value="savings">Ahorro</option>
+              </select>
+            </label>
+            <label>Categoría
+              <select id="transactionCategory">
+                <option value="Alimentación">Alimentación</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Hogar">Hogar</option>
+                <option value="Servicios">Servicios</option>
+                <option value="Salud">Salud</option>
+                <option value="Educación">Educación</option>
+                <option value="Entretenimiento">Entretenimiento</option>
+                <option value="Sueldo">Sueldo</option>
+                <option value="Ahorro">Ahorro</option>
+                <option value="Otros">Otros</option>
+              </select>
+            </label>
+            <label class="span-2">Descripción
+              <input id="transactionName" type="text" maxlength="120" placeholder="Ej. supermercado o sueldo" required />
+            </label>
+            <label>Monto
+              <div class="money-input"><span>S/</span><input id="transactionAmount" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="0.00" required /></div>
+            </label>
+            <label>Día
+              <input id="transactionDay" type="number" min="1" max="31" inputmode="numeric" value="1" required />
+            </label>
+            <label>Mes
+              <input id="transactionMonth" type="month" required />
+            </label>
+            <button class="primary-button" type="submit">
+              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></svg>
+              Guardar movimiento
+            </button>
+          </form>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div><span class="label">Pagos programados</span><h2>Nueva deuda o pago fijo</h2></div>
+          </div>
+          <form id="debtForm" class="form-grid">
+            <label class="span-2">Nombre
+              <input id="debtName" type="text" maxlength="120" placeholder="Ej. préstamo o plan móvil" required />
+            </label>
+            <label>Monto
+              <div class="money-input"><span>S/</span><input id="debtAmount" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="0.00" required /></div>
+            </label>
+            <label>Día de pago
+              <input id="debtDay" type="number" min="1" max="31" inputmode="numeric" value="1" required />
+            </label>
+            <label>Desde
+              <input id="debtStart" type="month" required />
+            </label>
+            <label>Último pago
+              <input id="debtEnd" type="month" required />
+            </label>
+            <label>Repetición
+              <select id="debtRepeats">
+                <option value="monthly">Mensual</option>
+                <option value="once">Solo una vez</option>
+              </select>
+            </label>
+            <button class="primary-button" type="submit">
+              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></svg>
+              Guardar deuda
+            </button>
+          </form>
+        </article>
+      </section>
+
+      <section class="panel movements-panel">
+        <div class="panel-heading row-heading">
+          <div><span class="label">Historial del mes</span><h2>Todos los movimientos</h2></div>
+          <div class="filter-bar">
+            <input id="movementSearch" type="search" placeholder="Buscar movimiento" aria-label="Buscar movimiento" />
+            <select id="movementFilter" aria-label="Filtrar movimientos">
+              <option value="all">Todos</option>
+              <option value="income">Ingresos</option>
+              <option value="expense">Gastos</option>
+              <option value="savings">Ahorros</option>
+              <option value="debt">Deudas</option>
+            </select>
+          </div>
+        </div>
+        <div id="movementList" class="movement-table"></div>
+      </section>
+
+      <section class="panel projection-panel">
+        <div class="panel-heading row-heading">
+          <div><span class="label">Próximos seis meses</span><h2>Proyección financiera</h2></div>
+          <button id="resetData" class="secondary-button" type="button">Restaurar ejemplo</button>
+        </div>
+        <div id="projectionGrid" class="projection-grid"></div>
+      </section>
+
+      <section class="panel backup-panel">
+        <div>
+          <span class="label">Tus datos son tuyos</span>
+          <h2>Copias de seguridad</h2>
+          <p>Exporta un archivo para guardarlo o impórtalo al cambiar de dispositivo.</p>
+        </div>
+        <div class="backup-actions">
+          <button id="exportData" class="secondary-button" type="button">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14" /></svg>
+            Exportar
+          </button>
+          <label class="secondary-button file-button">
+            <svg viewBox="0 0 24 24"><path d="M12 21V9m0 0 4 4m-4-4-4 4M5 5h14" /></svg>
+            Importar
+            <input id="importData" type="file" accept="application/json" />
+          </label>
+        </div>
+      </section>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Navegación móvil">
+      <a href="#inicio"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7v9H3v-9Z" /></svg><span>Resumen</span></a>
+      <a href="#registrar"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></svg><span>Registrar</span></a>
+      <button id="mobileNextMonth" type="button"><svg viewBox="0 0 24 24"><path d="M7 3v3m10-3v3M4 9h16M5 5h14v15H5V5Z" /></svg><span>Siguiente mes</span></button>
+    </nav>
+
+    <template id="emptyStateTemplate">
+      <div class="empty-state">Sin registros en esta quincena.</div>
+    </template>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

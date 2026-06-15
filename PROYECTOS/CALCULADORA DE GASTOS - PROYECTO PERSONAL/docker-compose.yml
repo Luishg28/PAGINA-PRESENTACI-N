@@ -1,0 +1,34 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      DB_HOST: database
+      DB_NAME: control_financiero
+      DB_USER: control_app
+      DB_PASS: change-this-password
+    depends_on:
+      database:
+        condition: service_healthy
+    restart: unless-stopped
+
+  database:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: control_financiero
+      MYSQL_USER: control_app
+      MYSQL_PASSWORD: change-this-password
+      MYSQL_ROOT_PASSWORD: change-this-root-password
+    volumes:
+      - control_financiero_data:/var/lib/mysql
+      - ./database.sql:/docker-entrypoint-initdb.d/01-database.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-pchange-this-root-password"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+volumes:
+  control_financiero_data:

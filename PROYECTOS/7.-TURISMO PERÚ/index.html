@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo Perú</title>
+    <link rel="stylesheet" href="../estilo-proyecto.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: radial-gradient(circle at top, #284f55 0%, #081013 56%, #030606 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px 40px;
+        }
+        .barra {
+            position: fixed;
+            inset: 0 0 auto 0;
+            height: 68px;
+            padding: 0 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(0,0,0,0.78);
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+        .barra a { color: white; text-decoration: none; font-weight: 700; margin-left: 24px; }
+        .barra .marca { margin-left: 0; font-size: 1.4rem; }
+        main { width: min(980px, 100%); text-align: center; }
+        h1 {
+            margin-bottom: 22px;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            letter-spacing: 0.04em;
+        }
+        .contenedor {
+            width: min(880px, 100%);
+            aspect-ratio: 8 / 3;
+            border: 1px solid rgba(255,255,255,0.16);
+            border-radius: 8px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+        }
+        .tarjeta1, .tarjeta2, .tarjeta3, .tarjeta4 {
+            flex: 1 1 0;
+            min-width: 0;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(-60px);
+            animation: destinoEntrada 0.85s cubic-bezier(.2,.8,.2,1) forwards;
+            transition: flex 0.5s cubic-bezier(.2,.8,.2,1), filter 0.35s ease;
+            cursor: pointer;
+        }
+        .tarjeta1 { background-image: url(img/mar.jpg); animation-delay: 0.1s; }
+        .tarjeta2 { background-image: url(img/costa.jpg); animation-delay: 0.28s; }
+        .tarjeta3 { background-image: url(img/sierra.jpg); animation-delay: 0.46s; }
+        .tarjeta4 { background-image: url(img/selva.jpg); animation-delay: 0.64s; }
+        .tarjeta1::after, .tarjeta2::after, .tarjeta3::after, .tarjeta4::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.32));
+            transition: background 0.35s ease;
+            z-index: 0;
+        }
+        .tarjeta1:hover, .tarjeta2:hover, .tarjeta3:hover, .tarjeta4:hover {
+            z-index: 2;
+            filter: brightness(1.12) saturate(1.08);
+        }
+        .tarjeta1::before, .tarjeta2::before, .tarjeta3::before, .tarjeta4::before {
+            content: attr(data-destino);
+            position: absolute;
+            left: 50%;
+            bottom: 22px;
+            z-index: 2;
+            transform: translate(-50%, 16px);
+            padding: 9px 13px;
+            opacity: 0;
+            border: 1px solid rgba(255,255,255,0.32);
+            border-radius: 6px;
+            background: rgba(0,0,0,0.68);
+            color: white;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+        .tarjeta1:hover::before, .tarjeta2:hover::before,
+        .tarjeta3:hover::before, .tarjeta4:hover::before,
+        .destino-activo::before {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+        .destino-activo {
+            z-index: 4;
+            flex: 2.4 1 0;
+            filter: brightness(1.18) saturate(1.18);
+            box-shadow: inset 0 0 0 3px rgba(255,255,255,0.72);
+        }
+        .contenedor:has(.destino-activo) > div:not(.destino-activo) {
+            flex: 0.72 1 0;
+            filter: brightness(0.78) saturate(0.82);
+        }
+        .detalle-destino {
+            width: min(880px, 100%);
+            min-height: 82px;
+            margin: 18px auto 0;
+            padding: 18px 22px;
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.06);
+            text-align: left;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: 0.35s ease;
+        }
+        .detalle-destino.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .detalle-destino h2 {
+            margin-bottom: 6px;
+            font-size: 1.15rem;
+        }
+        .detalle-destino p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+        @keyframes destinoEntrada {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 620px) {
+            .barra { padding: 0 18px; }
+            .barra a { margin-left: 12px; font-size: 0.9rem; }
+            .contenedor {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                aspect-ratio: 1 / 1;
+            }
+            .destino-activo,
+            .contenedor:has(.destino-activo) > div:not(.destino-activo) {
+                filter: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="barra">
+        <a class="marca" href="../../index.html#main">Luis</a>
+        <div class="enlaces-portafolio">
+            <a href="../../index.html#main">Inicio</a>
+            <a href="../../index.html#about">Sobre mí</a>
+            <a class="regresar" href="../../index.html#proyectos">Volver a proyectos</a>
+        </div>
+    </nav>
+    <main>
+        <h1>Turismo Perú</h1>
+        <div class="contenedor">
+            <div id="mar" class="tarjeta1" data-destino="Mar peruano" data-descripcion="Acantilados, playas y paisajes del litoral peruano frente al océano Pacífico." role="button" tabindex="0" aria-pressed="false"></div>
+            <div id="costa" class="tarjeta2" data-destino="Costa" data-descripcion="Desiertos, bahías y ciudades históricas que recorren la costa del Perú." role="button" tabindex="0" aria-pressed="false"></div>
+            <div id="sierra" class="tarjeta3" data-destino="Sierra" data-descripcion="Montañas, valles andinos y comunidades rodeadas por paisajes de gran altura." role="button" tabindex="0" aria-pressed="false"></div>
+            <div id="selva" class="tarjeta4" data-destino="Selva" data-descripcion="Bosques amazónicos, biodiversidad y alojamientos integrados con la naturaleza." role="button" tabindex="0" aria-pressed="false"></div>
+        </div>
+        <div class="detalle-destino" aria-live="polite">
+            <h2>Selecciona un destino</h2>
+            <p>Haz clic sobre una imagen para conocer más sobre esa región del Perú.</p>
+        </div>
+    </main>
+    <script>
+        const destinos = document.querySelectorAll(".contenedor > div");
+        const detalle = document.querySelector(".detalle-destino");
+        const detalleTitulo = detalle.querySelector("h2");
+        const detalleTexto = detalle.querySelector("p");
+
+        function seleccionarDestino(tarjeta) {
+            const estabaActivo = tarjeta.classList.contains("destino-activo");
+            destinos.forEach((item) => {
+                item.classList.remove("destino-activo");
+                item.setAttribute("aria-pressed", "false");
+            });
+            if (!estabaActivo) {
+                tarjeta.classList.add("destino-activo");
+                tarjeta.setAttribute("aria-pressed", "true");
+                detalleTitulo.textContent = tarjeta.dataset.destino;
+                detalleTexto.textContent = tarjeta.dataset.descripcion;
+                detalle.classList.add("visible");
+            } else {
+                detalleTitulo.textContent = "Selecciona un destino";
+                detalleTexto.textContent = "Haz clic sobre una imagen para conocer más sobre esa región del Perú.";
+                detalle.classList.remove("visible");
+            }
+        }
+
+        destinos.forEach((tarjeta) => {
+            tarjeta.addEventListener("click", () => {
+                seleccionarDestino(tarjeta);
+                history.replaceState(null, "", tarjeta.classList.contains("destino-activo") ? `#${tarjeta.id}` : location.href.split("#")[0]);
+            });
+            tarjeta.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    seleccionarDestino(tarjeta);
+                }
+            });
+        });
+
+        const destinoInicial = location.hash ? document.querySelector(location.hash) : null;
+        if (destinoInicial?.matches(".contenedor > div")) {
+            seleccionarDestino(destinoInicial);
+        }
+    </script>
+</body>
+</html>

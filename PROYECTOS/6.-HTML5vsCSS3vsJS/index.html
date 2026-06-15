@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 vs CSS3 vs JS</title>
+    <link rel="stylesheet" href="../estilo-proyecto.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: radial-gradient(circle at top, #273247 0%, #0d1018 56%, #050609 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px 40px;
+        }
+        .barra {
+            position: fixed;
+            inset: 0 0 auto 0;
+            height: 68px;
+            padding: 0 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(0,0,0,0.78);
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+        .barra a { color: white; text-decoration: none; font-weight: 700; margin-left: 24px; }
+        .barra .marca { margin-left: 0; font-size: 1.4rem; }
+        main { width: min(880px, 100%); text-align: center; }
+        h1 {
+            margin-bottom: 22px;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            letter-spacing: 0.04em;
+        }
+        .contenedor {
+            width: min(780px, 100%);
+            aspect-ratio: 2 / 1;
+            border: 1px solid rgba(255,255,255,0.16);
+            border-radius: 8px;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+            background: #111827;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+        }
+        .html5, .CSS3, .Java {
+            min-width: 0;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transform: translateY(-110%);
+            animation: entradaTarjeta 0.9s cubic-bezier(.2,.8,.2,1) forwards;
+            transition: transform 0.35s ease, filter 0.35s ease;
+            cursor: pointer;
+            isolation: isolate;
+        }
+        .html5 { background-image: url(img/html5.jpg); animation-delay: 0.15s; }
+        .CSS3 { background-image: url(img/css3.jpg); animation-delay: 0.35s; }
+        .Java { background-image: url(img/java.jpg); animation-delay: 0.55s; }
+        .html5::after, .CSS3::after, .Java::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.24));
+            transition: background 0.35s ease;
+            z-index: -1;
+        }
+        .html5:hover, .CSS3:hover, .Java:hover {
+            transform: translateY(0) scale(1.06);
+            z-index: 2;
+            filter: brightness(1.12);
+        }
+        .html5::before, .CSS3::before, .Java::before {
+            content: attr(data-nombre);
+            position: absolute;
+            left: 50%;
+            bottom: 22px;
+            z-index: 2;
+            padding: 9px 13px;
+            transform: translate(-50%, 18px);
+            opacity: 0;
+            border: 1px solid rgba(255,255,255,0.28);
+            border-radius: 6px;
+            background: rgba(0,0,0,0.72);
+            color: white;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+        .html5:hover::before, .CSS3:hover::before, .Java:hover::before,
+        .html5:focus-visible::before, .CSS3:focus-visible::before, .Java:focus-visible::before,
+        .html5.activa::before, .CSS3.activa::before, .Java.activa::before {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+        .html5.activa, .CSS3.activa, .Java.activa {
+            z-index: 4;
+            transform: translateY(0) scale(1.12) rotate(-1deg);
+            filter: brightness(1.2) saturate(1.12);
+            animation: seleccionTecnologia 0.55s cubic-bezier(.2,.8,.2,1);
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.7);
+        }
+        .html5.activa::after, .CSS3.activa::after, .Java.activa::after {
+            background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.08));
+        }
+        .contenedor:has(.activa) > div:not(.activa) {
+            filter: brightness(0.45) grayscale(0.4);
+            transform: scale(0.96);
+        }
+        @keyframes seleccionTecnologia {
+            0% { transform: translateY(0) scale(1); }
+            55% { transform: translateY(0) scale(1.16) rotate(1deg); }
+            100% { transform: translateY(0) scale(1.12) rotate(-1deg); }
+        }
+        @keyframes entradaTarjeta {
+            0% { transform: translateY(-110%) rotateY(24deg); opacity: 0; }
+            100% { transform: translateY(0) rotateY(0); opacity: 1; }
+        }
+        @media (max-width: 620px) {
+            .barra { padding: 0 18px; }
+            .barra a { margin-left: 12px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="barra">
+        <a class="marca" href="../../index.html#main">Luis</a>
+        <div class="enlaces-portafolio">
+            <a href="../../index.html#main">Inicio</a>
+            <a href="../../index.html#about">Sobre mí</a>
+            <a class="regresar" href="../../index.html#proyectos">Volver a proyectos</a>
+        </div>
+    </nav>
+    <main>
+        <h1>HTML5 vs CSS3 vs JS</h1>
+        <div class="contenedor">
+            <div class="html5" data-nombre="HTML5" role="button" tabindex="0" aria-pressed="false"></div>
+            <div class="CSS3" data-nombre="CSS3" role="button" tabindex="0" aria-pressed="false"></div>
+            <div class="Java" data-nombre="JavaScript" role="button" tabindex="0" aria-pressed="false"></div>
+        </div>
+    </main>
+    <script>
+        const tecnologias = document.querySelectorAll(".contenedor > div");
+
+        function seleccionarTecnologia(tarjeta) {
+            const estabaActiva = tarjeta.classList.contains("activa");
+            tecnologias.forEach((item) => {
+                item.classList.remove("activa");
+                item.setAttribute("aria-pressed", "false");
+            });
+            if (!estabaActiva) {
+                tarjeta.classList.add("activa");
+                tarjeta.setAttribute("aria-pressed", "true");
+            }
+        }
+
+        tecnologias.forEach((tarjeta) => {
+            tarjeta.addEventListener("click", () => seleccionarTecnologia(tarjeta));
+            tarjeta.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    seleccionarTecnologia(tarjeta);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Animación CSS</title>
+        <link rel="stylesheet" href="../estilo-proyecto.css">
+
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            #contenedor{
+                width: 400px;
+                height: 200px;
+                border: 1px solid black;
+                position:relative;
+                margin:0 auto; /*centrar el contenedor*/   
+                overflow: hidden; /*OCULTA TODO LO QUE CONTIENE*/       
+            }
+            #cuadrito{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                position: absolute;/*OBLIGATORIO PARA MOVER EL DIV*/
+                top: 50px;
+                right: 500px;
+
+                animation: cuadrito 3s infinite;
+                animation-timing-function: linear;/*define la forma de moverse*/
+
+            }
+            @keyframes cuadrito{
+                from{
+                    right: -100px;
+                }
+                to{
+                    right: 500px;
+                }
+            }
+        </style>
+</head>
+<body>
+    <a class="regresar" href="../../index.html#proyectos">Volver a proyectos</a>
+    <div id="contenedor">
+
+        <div id="cuadrito"></div>
+        
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+.regresar {
+    position: fixed;
+    top: 82px;
+    left: max(18px, calc((100% - 1180px) / 2));
+    z-index: 50;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 0;
+    padding: 11px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background: rgba(5, 5, 9, 0.9);
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    font: 600 0.84rem/1 Arial, Helvetica, sans-serif;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.regresar:hover {
+    background: rgba(255, 255, 255, 0.14);
+    transform: translateX(-2px);
+}
+
+.regresar::before {
+    content: "\2190";
+    font-size: 1rem;
+}
+
+@media (max-width: 680px) {
+    .barra {
+        padding-inline: 16px !important;
+    }
+
+    .barra .enlaces-portafolio a:not(.regresar) {
+        display: none;
+    }
+
+    .regresar {
+        top: 78px;
+        left: 14px;
+        padding: 10px 12px;
+    }
+}
